@@ -223,7 +223,7 @@ header {
   position: relative;
   /* position: absolute; */
   z-index: 1;
-  padding-bottom: 12%;
+  padding-bottom: 6%;
 }
 
 .slider ul {
