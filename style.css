@@ -13,6 +13,23 @@ header {
   background-color: #fff;
   box-shadow: 0px 0px 10px 2px rgb(0 0 0 / 50%);
 }
+
+/* overwrite bootstrap */
+.btn-primary{
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  color: var(--primary);
+  background-color: #fff;
+  border-color: var(--primary);
+}
+.btn-lg {
+  font-size: 1rem;
+}
+
+
 .header-top,
 .header {
   padding-left: 20px;
@@ -397,14 +414,17 @@ header {
   }
 }
 
-.heading-1 .btn-primary,
-.heading-1 .btn-primary:hover,
-.heading-1 .btn-primary:focus {
+.heading-1 .btn-primary
+
+ {
   background-color: #fff;
   border-color: #fff;
   color: var(--primary);
   font-weight: bold;
 }
+
+.heading-1 .btn-primary:hover,.heading-1 .btn-primary:focus{background-color: var(--primary);border-color: var(--primary);color: #fff;}
+.heading-1 .btn-primary:active{border-color: #fff;}
 
 .heading-2 {
   color: var(--text-gray);
@@ -566,15 +586,7 @@ header {
   margin-bottom: -8%;
   z-index: 2;
 }
-.btn-primary,
-.btn-primary:hover,
-.btn-primary:focus {
-  background-color: var(--primary);
-  border-color: var(--primary);
-}
-.btn-lg {
-  font-size: 1rem;
-}
+
 
 .col-figure::before {
   content: "";
@@ -681,6 +693,7 @@ header {
 
 .footer .flogo {
   margin-bottom: 50px;
+  width: 100%;
 }
 .footer .list {
   margin: 0;
@@ -755,6 +768,7 @@ header {
 }
 .btn-block {
   width: 100%;
+  display: block;
 }
 
 @media (max-width: 768px) {
