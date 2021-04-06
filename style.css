@@ -4,6 +4,7 @@
   --text-secondary: #fbd3d3;
   --text-dark: #333;
   --text-gray: #585858;
+  --bs-gutter-x: 1.5rem;
 }
 
 body {
@@ -121,6 +122,9 @@ header {
   transform: skewX(18.18deg);
   z-index: 0;
 }
+.c-site-nav {
+  justify-content: flex-end;
+}
 @media (min-width: 768px) {
   .logo-wrapper .figure-logo {
     display: block;
@@ -153,12 +157,14 @@ header {
     padding: 0 10px;
     right: -100%;
     transition: all 0.5s ease-out;
+    justify-content: flex-start;
   }
   .navbar ul {
     list-style: none;
   }
   .show {
     right: 0 !important;
+    transition: all 0.5s ease-out;
   }
   .navbar li {
     padding: 28px 16px;
@@ -538,7 +544,7 @@ header {
   border-radius: 6px;
   transition: all 0.5s ease-out;
   min-height: 383px;
-  margin: 0 -5px;
+  /* margin: 0 -5px; */
   margin-top: 10px;
 }
 .card-service .title {
@@ -834,9 +840,6 @@ header {
     padding: 0;
     margin-top: 10px;
   }
-  .card {
-    margin-top: 10px;
-  }
   .slider-fix-mobile {
     max-height: inherit;
   }
@@ -977,5 +980,20 @@ a.whatsapp:hover {
     opacity: 0.2;
   }
 }
-.show {
+
+@media (max-width: 768px) {
+  .heading-1,
+  .heading-2,
+  .heading-3 {
+    padding-left: 0px;
+  }
+  .title-figure::before {
+    margin-left: -32px;
+    transform: scale(0.9);
+  }
+  .card {
+    margin: 0;
+    margin-top: calc(var(--bs-gutter-x) / 2);
+    margin-bottom: calc(var(--bs-gutter-x) / 2);
+  }
 }
