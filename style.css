@@ -15,15 +15,32 @@ header {
 }
 
 /* overwrite bootstrap */
+.btn {
+  transition: all 0.2s ease-in-out;
+}
+.waves-effect {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
 .btn-primary {
   background-color: var(--primary);
   border-color: var(--primary);
 }
-.btn-primary:hover,
+.btn-primary:hover {
+}
 .btn-primary:focus {
   color: var(--primary);
   background-color: #fff;
   border-color: var(--primary);
+  box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
+  outline: 0;
+}
+.btn-primary:active:focus {
+  box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
 }
 .btn-lg {
   font-size: 1rem;
@@ -122,12 +139,10 @@ header {
 }
 
 @media (max-width: 1091px) {
-  .navbar ul {
+  .c-site-nav {
     margin-top: 139px;
     display: flex;
-    list-style: none;
     position: fixed;
-    right: 0;
     top: 0;
     height: 100%;
     background: rgb(126 37 42);
@@ -136,6 +151,14 @@ header {
     min-width: 200px;
     align-items: initial;
     padding: 0 10px;
+    right: -100%;
+    transition: all 0.5s ease-out;
+  }
+  .navbar ul {
+    list-style: none;
+  }
+  .show {
+    right: 0 !important;
   }
   .navbar li {
     padding: 28px 16px;
@@ -224,7 +247,8 @@ header {
   }
 }
 .slider {
-  max-height: 690px;
+  min-height: 683px;
+  /* max-height: 690px; */
   overflow: hidden;
   display: flex;
   /* align-items: center;
@@ -237,9 +261,8 @@ header {
 .slide .content {
   width: 100%;
   position: relative;
-  /* position: absolute; */
   z-index: 1;
-  padding-bottom: 6%;
+  padding-bottom: 11%;
 }
 
 .slider ul {
@@ -271,7 +294,8 @@ header {
   display: block;
   z-index: 2;
   transform: rotate(-2.55deg);
-  bottom: -45px;
+  bottom: -57px;
+  /* bottom: -45px; */
   width: 105%;
   left: -1%;
 }
@@ -414,29 +438,36 @@ header {
 }
 
 .heading-1 .btn-primary {
-  background-color: #fff;
   border-color: #fff;
+  background-color: #fff;
   color: var(--primary);
   font-weight: bold;
+  box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
 }
 
-.heading-1 .btn-primary:hover,
-.heading-1 .btn-primary:focus {
+.heading-1 .btn-primary:hover {
   background-color: var(--primary);
   border-color: var(--primary);
   color: #fff;
 }
+.heading-1 .btn-primary:focus {
+}
 .heading-1 .btn-primary:active {
-  border-color: #fff;
+  background-color: #96191d;
+  border-color: #96191d;
 }
 
 .heading-2 {
   color: var(--text-gray);
   margin-top: 100px;
-  margin-bottom: 95px;
   padding-left: 10px;
   position: relative;
   z-index: 2;
+}
+@media (min-width: 768px) {
+  .heading-2 {
+    margin-bottom: 95px;
+  }
 }
 .heading-2 .description {
   font-size: 90%;
@@ -478,8 +509,8 @@ header {
   font-weight: 600;
   color: var(--text-dark);
 }
-.title-figure::before{
-  content: '';
+.title-figure::before {
+  content: "";
   width: 29px;
   height: 43px;
   background-image: url(./images/figure-left-title.png);
@@ -487,8 +518,8 @@ header {
   margin-left: -40px;
 }
 
-.figure-corner::before{
-  content: '';
+.figure-corner::before {
+  content: "";
   width: 69px;
   height: 68px;
   background-image: url(./images/figure-for-image.png);
@@ -656,7 +687,7 @@ header {
   max-height: inherit;
 }
 
-.overflow::after {
+/* .overflow::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -666,7 +697,7 @@ header {
   opacity: 0.8;
   height: 200%;
   top: 0;
-}
+} */
 @media (min-width: 768px) {
   .card:hover {
     transform: scale(1.1);
@@ -710,11 +741,12 @@ header {
   padding: 80px 0;
   background-color: var(--primary);
   color: #fff;
+  position: relative;
 }
 
 .footer .flogo {
   margin-bottom: 50px;
-  width: 100%;
+  width: 70%;
 }
 .footer .list {
   margin: 0;
@@ -757,7 +789,7 @@ header {
 .copy {
   color: #ffffff;
   background-color: #642123;
-  padding: 29px 0px;
+  padding: 29px 15px;
   font-size: 80%;
   text-align: center;
 }
@@ -790,9 +822,18 @@ header {
 .btn-block {
   width: 100%;
   display: block;
+  padding: 0.84rem 2.14rem;
 }
 
 @media (max-width: 768px) {
+  .links {
+    padding: 10px;
+  }
+  .wcopy {
+    display: block;
+    padding: 0;
+    margin-top: 10px;
+  }
   .card {
     margin-top: 10px;
   }
@@ -807,6 +848,19 @@ header {
   }
 }
 @media (max-width: 768px) {
+  .figure-corner {
+    transform: scale(0.85);
+  }
+  .fix-icon-title {
+    margin-left: 25px !important;
+  }
+  .slider-figure-right {
+    right: -40%;
+    width: 60%;
+  }
+  .sm-img-100 {
+    width: 100%;
+  }
   .links {
     flex-direction: column;
   }
@@ -825,8 +879,9 @@ header {
     margin: 0;
     padding: 4px 0;
   }
-  .navbar ul {
+  .c-site-nav {
     margin-top: 156px;
+    outline: 0;
   }
   .top-list li a {
     margin: 0;
@@ -848,13 +903,16 @@ header {
   text-align: center;
   font-size: 30px;
   z-index: 100;
+  transition: all 0.2s ease-in-out;
 }
 
 .whatsapp-icon {
   margin-top: 13px;
 }
 a.whatsapp:hover {
-  color: rgb(0 0 0 / 60%);
+  transform: scale(0.9);
+  background-color: #25d366;
+  color: #fff;
 }
 
 .figure {
@@ -869,15 +927,15 @@ a.whatsapp:hover {
   }
 }
 .figure-top-right {
-  top: 20px;
-  right: 20px;
+  top: 23px;
+  right: 23px;
   width: 307px;
   height: 210px;
   background-image: url("./images/figure_1.png");
 }
 .figure-bottom-left {
-  bottom: 50px;
-  left: 20px;
+  bottom: 33px;
+  left: 23px;
   width: 454px;
   height: 259px;
   background-image: url("./images/figure_2.png");
@@ -892,16 +950,32 @@ a.whatsapp:hover {
 }
 
 .figure-bottom-right {
-  bottom: 40px;
-  right: 20px;
+  bottom: 30px;
+  right: -16px;
   width: 600px;
-  height: 270px;
+  height: 258px;
   z-index: 0;
-  background-image: url("./images/figure_4.png");
+  background-image: url(./images/figure_4_re.png);
   display: none;
+  transform: scale(0.9);
+}
+.figure-footer {
+  bottom: 21px;
+  left: 15px;
+  width: 347px;
+  height: 259px;
+  z-index: 0;
+  background-image: url(./images/figure_6.png);
+  /* display: none; */
 }
 
-@media (min-width:768px) {
-  .figure-bottom-right{display: block;}
-  
+@media (min-width: 768px) {
+  .figure-bottom-right {
+    display: block;
+  }
+  .figure-footer {
+    opacity: 0.2;
+  }
+}
+.show {
 }

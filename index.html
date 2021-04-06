@@ -27,7 +27,10 @@
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <header class="sticky-top">
@@ -82,19 +85,24 @@
               >
                 <span class="navbar-toggler-icon"></span>
               </button>
-
-              <ul
-                id="navbarToggleExternalContent"
-                class="collapse navbar-collapse"
+              <nav
+                class="c-site-nav js-site-nav"
+                tabindex="-1"
+                role="navigation"
               >
-                <li class="active">
-                  <a href="javascript:void(0)">Portada</a>
-                </li>
-                <li><a href="javascript:void(0)">Quienes Somos</a></li>
-                <li><a href="javascript:void(0)">Especialidad</a></li>
-                <li><a href="javascript:void(0)">Noticias</a></li>
-                <li><a href="javascript:void(0)">Contacto</a></li>
-              </ul>
+                <ul
+                  id="navbarToggleExternalContent"
+                  class="collapse navbar-collapse"
+                >
+                  <li class="active">
+                    <a href="javascript:void(0)">Portada</a>
+                  </li>
+                  <li><a href="javascript:void(0)">Quienes Somos</a></li>
+                  <li><a href="javascript:void(0)">Especialidad</a></li>
+                  <li><a href="javascript:void(0)">Noticias</a></li>
+                  <li><a href="javascript:void(0)">Contacto</a></li>
+                </ul>
+              </nav>
             </div>
           </div>
         </div>
@@ -287,7 +295,7 @@
             </div>
 
             <div class="col-12 col-md-5 person">
-              <img src="./images/person.png" alt="" />
+              <img class="sm-img-100" src="./images/person.png" alt="" />
             </div>
           </div>
           <div class="slider-figure-right size-30"></div>
@@ -301,8 +309,10 @@
         <div class="row">
           <div class="col-12 col-md-6">
             <div class="heading-3">
-              <p class="before-title">Consectetur adipiscing</p>
-              <h2 class="title title-figure">CONSECTETUR ADIPISICING LOREM IPSUM</h2>
+              <p class="before-title fix-icon-title">Consectetur adipiscing</p>
+              <h2 class="title title-figure fix-icon-title">
+                CONSECTETUR ADIPISICING LOREM IPSUM
+              </h2>
               <p class="description text-justify">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -325,9 +335,9 @@
           <div class="col-12 col-md-5 offset-md-1">
             <div class="figure-corner">
               <img
-              class="person-detail"
-              src="./images/person_detail.png"
-              alt=""
+                class="person-detail"
+                src="./images/person_detail.png"
+                alt=""
               />
             </div>
           </div>
@@ -340,7 +350,7 @@
         <div class="slider-top-line"></div>
         <div class="slide overflow slider-fix-mobile">
           <img
-            src="./images/bg-noticias.png"
+            src="./images/bg-noticias-2.png"
             alt=""
             style="position: absolute"
           />
@@ -451,14 +461,11 @@
 
     <div class="footer-wrapper">
       <div class="footer">
+        <div class="figure figure-footer"></div>
         <div class="container">
           <div class="row">
             <div class="col-12 col-md-5 offset-md-1">
-              <img
-                src="./images/logo-footer.png"
-                class="flogo"
-                alt=""
-              />
+              <img src="./images/logo-footer.png" class="flogo" alt="" />
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
@@ -525,6 +532,47 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
-    <a href="https://wa.me/528118243267?text=Me%20gustaría%20saber%20el%20precio%20de..." class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+    <a
+      href="https://wa.me/528118243267?text=Me%20gustaría%20saber%20el%20precio%20de..."
+      class="whatsapp"
+      target="_blank"
+    >
+      <i class="fa fa-whatsapp whatsapp-icon"></i
+    ></a>
+    <script>
+      var navToggle = document.getElementsByClassName("navbar-toggler")[0];
+      navMenu = document.getElementsByClassName("js-site-nav")[0];
+      navbarCollapse = document.getElementsByClassName("navbar-collapse")[0];
+      var isMouseDown = false;
+
+      navToggle.addEventListener("click", function () {
+        this.focus();
+        navMenu.classList.toggle("show");
+        navMenu.focus();
+      });
+
+      navMenu.addEventListener("mousedown", function () {
+        isMouseDown = true;
+      });
+
+      navMenu.addEventListener("mouseup", function () {
+        isMouseDown = false;
+      });
+
+      navMenu.addEventListener("mouseleave", function () {
+        isMouseDown = false;
+      });
+
+      navMenu.addEventListener(
+        "blur",
+        function () {
+          if (!isMouseDown) {
+            navMenu.classList.remove("show");
+            navbarCollapse.classList.remove("show");
+          }
+        },
+        true
+      );
+    </script>
   </body>
 </html>
