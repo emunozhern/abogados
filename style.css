@@ -957,7 +957,16 @@ header {
 .footer .list li {
   margin-bottom: 20px;
   display: flex;
-  /* font-size: 1.2rem; */
+  position: relative;
+  z-index: 1;
+}
+.footer a {
+  color: #f1f1f1;
+}
+.footer .list li img {
+  display: inline-block;
+  margin-right: 1rem;
+  max-height: 30px;
 }
 
 .grade-bottom-min {
@@ -1202,4 +1211,7 @@ a.whatsapp:hover {
   .js-site-nav {
     margin-top: 168px;
   }
+}
+.js-site-nav {
+  outline: none;
 }
