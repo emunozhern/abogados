@@ -1007,6 +1007,7 @@ header {
   margin-right: 8px;
   filter: invert(60%);
 }
+
 @media (min-width: 768px) {
   .footer .list li {
     margin-bottom: 50px;
@@ -1195,5 +1196,10 @@ a.whatsapp:hover {
     margin: 0;
     margin-top: calc(var(--bs-gutter-x) / 2);
     margin-bottom: calc(var(--bs-gutter-x) / 2);
+  }
+}
+@media (max-width: 443px) {
+  .js-site-nav {
+    margin-top: 168px;
   }
 }
